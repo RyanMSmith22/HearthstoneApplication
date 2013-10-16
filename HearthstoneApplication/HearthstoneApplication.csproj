@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9808BAA8-2DA6-4750-9229-BC11E0DFFA86}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HearthstoneApplication</RootNamespace>
+    <AssemblyName>HearthstoneApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Header_Footer.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Css\bootstrap-responsive.css" />
+    <Content Include="Css\bootstrap-responsive.min.css" />
+    <Content Include="Css\bootstrap.css" />
+    <Content Include="Css\bootstrap.min.css" />
+    <Content Include="Css\Common.css" />
+    <Content Include="Css\Responsive.css" />
+    <Content Include="Css\WWF.css" />
+    <Content Include="Heroes.aspx" />
+    <Content Include="Images\backgroundHS.jpg" />
+    <Content Include="Images\Blizzard.jpg" />
+    <Content Include="Images\BlizzardLogo.jpg" />
+    <Content Include="Images\diablo-3.jpg" />
+    <Content Include="Images\glyphicons-halflings-white.png" />
+    <Content Include="Images\glyphicons-halflings.png" />
+    <Content Include="Images\HearthDex.png" />
+    <Content Include="Images\hearthpwn.png" />
+    <Content Include="Images\hearthstone.jpg" />
+    <Content Include="Images\Hearthstonepedia.jpeg" />
+    <Content Include="Images\HearthstoneWiki.png" />
+    <Content Include="Images\Hearthstone\AbilityIcon\druid.png" />
+    <Content Include="Images\Hearthstone\AbilityIcon\hunter.png" />
+    <Content Include="Images\Hearthstone\AbilityIcon\mage.png" />
+    <Content Include="Images\Hearthstone\AbilityIcon\paladin.png" />
+    <Content Include="Images\Hearthstone\AbilityIcon\priest.png" />
+    <Content Include="Images\Hearthstone\AbilityIcon\rogue.png" />
+    <Content Include="Images\Hearthstone\AbilityIcon\shaman.png" />
+    <Content Include="Images\Hearthstone\AbilityIcon\warlock.png" />
+    <Content Include="Images\Hearthstone\AbilityIcon\warrior.png" />
+    <Content Include="Images\Hearthstone\Cards\Archmage.png" />
+    <Content Include="Images\Hearthstone\Cards\Cenarius.png" />
+    <Content Include="Images\Hearthstone\Cards\Grom.png" />
+    <Content Include="Images\Hearthstone\Cards\Jaraxxus.png" />
+    <Content Include="Images\Hearthstone\Cards\King.png" />
+    <Content Include="Images\Hearthstone\Cards\Tirion.png" />
+    <Content Include="Images\Hearthstone\Cards\VanCleef.png" />
+    <Content Include="Images\Hearthstone\Cards\Velen.png" />
+    <Content Include="Images\Hearthstone\Cards\Windlord.png" />
+    <Content Include="Images\Hearthstone\HeroesPics\Anduin.png" />
+    <Content Include="Images\Hearthstone\HeroesPics\Garrosh.jpg" />
+    <Content Include="Images\Hearthstone\HeroesPics\Gul%27dan.jpg" />
+    <Content Include="Images\Hearthstone\HeroesPics\Jaina.jpg" />
+    <Content Include="Images\Hearthstone\HeroesPics\Malfurion.png" />
+    <Content Include="Images\Hearthstone\HeroesPics\Rexxar.jpg" />
+    <Content Include="Images\Hearthstone\HeroesPics\Thrall.jpg" />
+    <Content Include="Images\Hearthstone\HeroesPics\Uther.jpg" />
+    <Content Include="Images\Hearthstone\HeroesPics\Valeera.jpg" />
+    <Content Include="Images\Hearthstone\Icons\DruidIcon.png" />
+    <Content Include="Images\Hearthstone\Icons\HunterIcon.png" />
+    <Content Include="Images\Hearthstone\Icons\MageIcon.png" />
+    <Content Include="Images\Hearthstone\Icons\PaladinIcon.png" />
+    <Content Include="Images\Hearthstone\Icons\PriestIcon.png" />
+    <Content Include="Images\Hearthstone\Icons\RogueIcon.png" />
+    <Content Include="Images\Hearthstone\Icons\ShamanIcon.png" />
+    <Content Include="Images\Hearthstone\Icons\WarlockIcon.png" />
+    <Content Include="Images\Hearthstone\Icons\WarriorIcon.png" />
+    <Content Include="Images\orderedList0.png" />
+    <Content Include="Images\orderedList1.png" />
+    <Content Include="Images\orderedList2.png" />
+    <Content Include="Images\orderedList3.png" />
+    <Content Include="Images\orderedList4.png" />
+    <Content Include="Images\orderedList5.png" />
+    <Content Include="Images\orderedList6.png" />
+    <Content Include="Images\orderedList7.png" />
+    <Content Include="Images\orderedList8.png" />
+    <Content Include="Images\orderedList9.png" />
+    <Content Include="Images\SC2.jpg" />
+    <Content Include="Images\Script.jpg" />
+    <Content Include="Images\Snow.jpg" />
+    <Content Include="Images\WoW.jpg" />
+    <Content Include="Images\wowhead.gif" />
+    <Content Include="index.aspx" />
+    <Content Include="JS\bootstrap.js" />
+    <Content Include="JS\bootstrap.min.js" />
+    <Content Include="JS\Common.js" />
+    <Content Include="JS\JQuery.js" />
+    <Content Include="JS\JQuery2.js" />
+    <Content Include="Stats.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Header_Footer.Master.cs">
+      <DependentUpon>Header_Footer.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Header_Footer.Master.designer.cs">
+      <DependentUpon>Header_Footer.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Heroes.aspx.cs">
+      <DependentUpon>Heroes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Heroes.aspx.designer.cs">
+      <DependentUpon>Heroes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Stats.aspx.cs">
+      <DependentUpon>Stats.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Stats.aspx.designer.cs">
+      <DependentUpon>Stats.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>20818</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:20818/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,52 @@
+﻿.center{
+    text-align: center;
+}
+@media (min-width: 980px){
+    .Fright{
+        float: right;
+    }
+}
+.fixmargin{
+    margin-right: 0px;
+}
+.CenterMargin
+{
+    margin: auto auto;
+}
+#header{
+    min-height: 50px;
+    line-height: 2em;
+}
+.common-sidebar
+{
+    background-color: #000;
+    color: #FFF;
+    border-radius: 2px;
+    border-color: #F00;
+}
+@media (max-width: 767px){
+    .common-sidebar{
+        position: static;
+        width: auto;
+        top: 0;
+        margin-bottom: 20px;
+    }
+}
+
+.show-grid [class*="span"]{
+    text-align: center;
+    line-height: 2em;
+}
+
+.red{
+    background-color: #F00;
+}
+.blue{
+    background-color: #5EA9FF;
+}
+.green{
+    background-color: #0F0;
+}
+.yellow{
+    background-color: #ffd800
+}

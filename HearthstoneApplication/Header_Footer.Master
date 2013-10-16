@@ -1,0 +1,64 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Header_Footer.master.cs" Inherits="HearthstoneApplication.Header_Footer" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>HearthstoneMaster</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Css/bootstrap.min.css" />
+    <link rel="stylesheet" href="Css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Css/Responsive.css" />
+    <script src="JS/Jquery.js" type="text/javascript"></script>
+    <script src="JS/Jquery2.js" type="text/javascript"></script>
+    <script src="JS/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Css/Common.css" />
+
+    <asp:ContentPlaceHolder ID="Head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+            <Scripts>
+            </Scripts>
+        </asp:ScriptManager>
+        <header id="MasterHeader">
+        <div class="navbar navbar-inverse navbar-fixed-top fixmargin">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                        
+                    </button>
+                    <div class="leftPic">
+                        <a href="http://us.blizzard.com/en-us/" target="_blank">
+                            <img id="BlizzardPic" alt="Blizzard Logo" src="/Images/Blizzard.jpg" /></a>
+                    </div>
+                    <div id="MasterNav" class="nav-collapse collapse Fright">
+                        <ul class="nav">
+                            <li><a runat="server" href="~/index.aspx"><u>Home</u></a></li>
+                            <li><a runat="server" href="~/Heroes.aspx"><u>Heroes</u></a></li>
+                            <li><a runat="server" href="~/Stats.aspx"><u>Statistics</u></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </header>
+        <div id="body">
+            <asp:ContentPlaceHolder ID="FeaturedContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </div>
+
+        <footer>
+            <div class="MasterFooter Center">
+                &copy; <%: DateTime.Now.Year %> - By: Ryan Smith & Thomas Cotter <br />
+                Contact Info: 13ladeness2@gmail.com or tcotter89@yahoo.com
+            </div>
+        </footer>
+    </form>
+</body>
+</html>
