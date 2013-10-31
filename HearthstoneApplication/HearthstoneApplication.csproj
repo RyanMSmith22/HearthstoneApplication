@@ -103,11 +103,11 @@
     <Content Include="Images\Hearthstone\Cards\VanCleef.png" />
     <Content Include="Images\Hearthstone\Cards\Velen.png" />
     <Content Include="Images\Hearthstone\Cards\Windlord.png" />
-    <Content Include="Images\Hearthstone\HeroesPics\Anduin.png" />
+    <Content Include="Images\Hearthstone\HeroesPics\Anduin.jpg" />
     <Content Include="Images\Hearthstone\HeroesPics\Garrosh.jpg" />
     <Content Include="Images\Hearthstone\HeroesPics\Gul%27dan.jpg" />
     <Content Include="Images\Hearthstone\HeroesPics\Jaina.jpg" />
-    <Content Include="Images\Hearthstone\HeroesPics\Malfurion.png" />
+    <Content Include="Images\Hearthstone\HeroesPics\Malfurion.jpg" />
     <Content Include="Images\Hearthstone\HeroesPics\Rexxar.jpg" />
     <Content Include="Images\Hearthstone\HeroesPics\Thrall.jpg" />
     <Content Include="Images\Hearthstone\HeroesPics\Uther.jpg" />
@@ -169,6 +169,8 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Objects\HeroStats.cs" />
+    <Compile Include="Objects\OppHeroStats.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stats.aspx.cs">
       <DependentUpon>Stats.aspx</DependentUpon>
