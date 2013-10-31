@@ -280,3 +280,15 @@ ol.round {
 .Blue{
     color: blue;
 }
+.heroUsed {
+    text-align:right;
+}
+
+.heroAgainst {
+    text-align:left;
+}
+
+.statsHeroImg {
+    width: 220px;
+    height: 300px;
+}
