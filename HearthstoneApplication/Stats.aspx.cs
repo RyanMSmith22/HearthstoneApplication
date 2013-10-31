@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HearthstoneApplication.Objects;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -14,7 +15,7 @@ namespace HearthstoneApplication
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+   
         }
 
         protected void btnAddStats_Click(object sender, EventArgs e)
@@ -27,6 +28,20 @@ namespace HearthstoneApplication
         {
             pnlAddSection.Visible = false;
             pnlviewSection.Visible = true;
+
+            string userName = tbxUserName.Text;
+            int userID = GetUserID(userName);
+            if (userID == 0)
+            {
+                
+            }
+            else
+            {
+                //Once the View Stats button is pressed the username whose stats have been requested is sent to the DB to retrieve the stats
+                HeroRepeater.DataSource = getHeroStats(userID);
+                HeroRepeater.DataBind(); 
+            }
+            
         }
 
         protected void btnSaveStats_Click(object sender, EventArgs e)
@@ -89,8 +104,12 @@ namespace HearthstoneApplication
             int OppHeroKey = int.Parse(ddlOpponentHero.SelectedValue);
             string Outcome = ddlOutcome.SelectedValue;
             int ManaLeft = int.Parse(ddlmanaLeft.SelectedValue);
-            int HealthLeft = int.Parse(tbxHealthLeft.Text);
-
+            int HealthLeft = -1;
+            if (tbxHealthLeft.Text != "")
+            {
+                HealthLeft = int.Parse(tbxHealthLeft.Text);
+            }
+           
             string connString = "DBConnectionString";
             string statInsert = "GameStats_Insert";
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings[connString].ToString());
@@ -118,6 +137,7 @@ namespace HearthstoneApplication
             finally
             {
                 conn.Close();
+                lblSaveStatus.Visible = true;
             }
 
         }
@@ -153,5 +173,66 @@ namespace HearthstoneApplication
             return userID;
         }
 
+        public List<HeroStats> getHeroStats(int userID)
+        {
+            List<HeroStats> heroStats = new List<HeroStats>();
+
+            //DB Connection =============================================================
+            string connString = "DBConnectionString";
+            string sql = "Hero_GetHeroes";
+            string sqlGetStats = "User_GetStats";
+
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings[connString].ToString());
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+                DataSet ds = new DataSet();
+                da.Fill(ds, "result_name2");
+                DataTable dt = ds.Tables["result_name2"];
+
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    HeroStats heroStat = new HeroStats();
+                    heroStat.Name = row["Name"].ToString();
+                    heroStat.Class = row["Class"].ToString();
+                    heroStat.HeroID = int.Parse(row["HeroID"].ToString());
+
+                    //List<OppHeroStats> oppHeroStats = new List<OppHeroStats>();
+
+                    SqlCommand cmmd = new SqlCommand(sqlGetStats, conn);
+                    cmmd.CommandType = CommandType.StoredProcedure;
+                    cmmd.Parameters.AddWithValue("@UserID", userID);
+                    cmmd.Parameters.AddWithValue("@UserHeroID", heroStat.HeroID);
+                    SqlDataAdapter da2 = new SqlDataAdapter(cmmd);
+
+                    DataSet ds2 = new DataSet();
+                    da2.Fill(ds2, "result_name3");
+                    DataTable dt2 = ds2.Tables["result_name3"];
+
+                    foreach (DataRow row2 in dt2.Rows)
+                    {
+                        heroStat.TotalWins = int.Parse(row2["TotalWins"].ToString());
+                        heroStat.TotalLoses = int.Parse(row2["TotalLoses"].ToString());
+                    }
+
+                    heroStats.Add(heroStat);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: " + e);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return heroStats;
+        }
     }
 }

@@ -169,6 +169,8 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Objects\HeroStats.cs" />
+    <Compile Include="Objects\OppHeroStats.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stats.aspx.cs">
       <DependentUpon>Stats.aspx</DependentUpon>

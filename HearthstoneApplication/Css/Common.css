@@ -264,3 +264,19 @@ ol.round {
     margin: 20px 1%;
     padding: 0 0.5%;
 }
+#SaveStatus{
+    display: block;
+    margin: auto auto;
+}
+.lblSaveStatus{
+    color: green;
+}
+.Red{
+    color: red;
+}
+.Green{
+    color: green;
+}
+.Blue{
+    color: blue;
+}

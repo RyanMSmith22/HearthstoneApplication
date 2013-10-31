@@ -70,9 +70,21 @@
                 <asp:TextBox ID="tbxHealthLeft" runat="server" MaxLength="2"></asp:TextBox>
             </div>
             <asp:Button ID="btnSaveStats" runat="server" Text="Save Stats" OnClick="btnSaveStats_Click" />
+            <div id="SaveStatus">
+                <asp:Label ID="lblSaveStatus" CssClass="lblSaveStatus" runat="server" Visible="false">Your Stats have been Saved Succussfully!</asp:Label>
+            </div>
         </asp:Panel>
         <asp:Panel ID="pnlviewSection" runat="server" Visible="false">
             <h2 class="Center">View Stats Section</h2>
+            <asp:Repeater ID="HeroRepeater" runat="server">
+                <ItemTemplate>
+                    <div class="HeroStats">
+                        <h3><%# Eval("Class") %>: <%# Eval("Name") %></h3>
+                        <h4 class="Blue">Total Wins: <%# Eval("TotalWins") %></h4>
+                        <h4 class="Red">Total Loses: <%# Eval("TotalLoses") %> </h4>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
         </asp:Panel>
     </div>
 
