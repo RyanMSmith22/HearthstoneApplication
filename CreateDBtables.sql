@@ -1,3 +1,61 @@
+
+USE [HearthstoneDB]
+GO
+
+/****** Object:  Table [dbo].[Users]    Script Date: 10/30/2013 10:25:46 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[Users](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Username] [varchar](30) NOT NULL,
+	[Pass] [varchar](20) NULL,
+	[TS] [date] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+USE [HearthstoneDB]
+GO
+
+/****** Object:  Table [dbo].[Hero]    Script Date: 10/30/2013 10:25:32 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[Hero](
+	[ID] [int] NOT NULL,
+	[Name] [varchar](40) NULL,
+	[Class] [varchar](15) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
 USE [HearthstoneDB]
 GO
 
@@ -44,59 +102,4 @@ REFERENCES [dbo].[Users] ([ID])
 GO
 
 
-USE [HearthstoneDB]
-GO
 
-/****** Object:  Table [dbo].[Hero]    Script Date: 10/30/2013 10:25:32 PM ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
-SET ANSI_PADDING ON
-GO
-
-CREATE TABLE [dbo].[Hero](
-	[ID] [int] NOT NULL,
-	[Name] [varchar](40) NULL,
-	[Class] [varchar](15) NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-
-GO
-
-SET ANSI_PADDING OFF
-GO
-
-USE [HearthstoneDB]
-GO
-
-/****** Object:  Table [dbo].[Users]    Script Date: 10/30/2013 10:25:46 PM ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
-SET ANSI_PADDING ON
-GO
-
-CREATE TABLE [dbo].[Users](
-	[ID] [int] IDENTITY(1,1) NOT NULL,
-	[Username] [varchar](30) NOT NULL,
-	[Pass] [varchar](20) NULL,
-	[TS] [date] NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-
-GO
-
-SET ANSI_PADDING OFF
-GO
