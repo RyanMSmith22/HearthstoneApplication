@@ -15,25 +15,45 @@ namespace HearthstoneApplication
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-   
+            imgSelectedHero.ImageUrl = convertDropDownSelectionToImageURL(ddlSelectedHero);
+            imgOpponentHero.ImageUrl = convertDropDownSelectionToImageURL(ddlOpponentHero);
+        }
+
+        protected void ItemBound(object sender, RepeaterItemEventArgs args)
+        {
+            if (args.Item.ItemType == ListItemType.Item || args.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                Repeater rep = (Repeater)args.Item.FindControl("OppHeroRepeater");
+
+                HeroStats result = args.Item.DataItem as HeroStats;
+                if (result != null)
+                {
+                    rep.DataSource = result.OpponentStats;
+                    rep.DataBind();
+                }
+            }
         }
 
         protected void btnAddStats_Click(object sender, EventArgs e)
         {
             pnlviewSection.Visible = false;
-            pnlAddSection.Visible = true;            
+            pnlAddSection.Visible = true;
+            pnlNoUserFound.Visible = false;
         }
 
         protected void btnViewStats_Click(object sender, EventArgs e)
         {
             pnlAddSection.Visible = false;
+            pnlNoUserFound.Visible = false;
             pnlviewSection.Visible = true;
+            lblUserDisplay.Text = "<u>" + tbxUserName.Text + "'s Stats for each Hero</u>";
 
             string userName = tbxUserName.Text;
             int userID = GetUserID(userName);
             if (userID == 0)
             {
-                
+                pnlNoUserFound.Visible = true;
+                pnlviewSection.Visible = false;
             }
             else
             {
@@ -73,7 +93,8 @@ namespace HearthstoneApplication
         {
             int startIndex = dropDownList.SelectedItem.Text.IndexOf(":") + 2;    //skip past the leading blank space
             int endIndex = dropDownList.SelectedItem.Text.Substring(startIndex).IndexOf(" ");
-            string picturePath = "/Images/Hearthstone/HeroesPics/";
+            string directoryPath = ConfigurationManager.AppSettings["imgPath"].ToString();
+            string picturePath = "Images/Hearthstone/HeroesPics/";
             string pictureName;
             if (endIndex + startIndex < startIndex)
             {
@@ -85,7 +106,7 @@ namespace HearthstoneApplication
             }
             string pictureExt = ".jpg";
 
-            return String.Concat(picturePath, pictureName, pictureExt);
+            return String.Concat(directoryPath, picturePath, pictureName, pictureExt);
         }
 
         public int GetUserID(string username)
@@ -248,8 +269,53 @@ namespace HearthstoneApplication
                     {
                         heroStat.TotalWins = int.Parse(row2["TotalWins"].ToString());
                         heroStat.TotalLoses = int.Parse(row2["TotalLoses"].ToString());
-                    }
+                        heroStat.TotalGames = heroStat.TotalWins + heroStat.TotalLoses;
+                        if (heroStat.TotalGames != 0)
+                        {
+                            heroStat.WinPercentage = (Math.Round(((double)heroStat.TotalWins / heroStat.TotalGames), 2) * 100);
+                        }
+                        else
+                        {
+                            heroStat.WinPercentage = 0;
+                        }
+                        List<OppHeroStats> oppHeroStats = new List<OppHeroStats>();
+                        //This is for recording the opponent specific stats
+                        for(int i=1; i <= 9; i++)
+                        {
+                            OppHeroStats oppHeroStat = new OppHeroStats();
 
+                            string sqlGetOppStats = "Hero_GetOppSpecificStats";
+                            SqlCommand cmd3 = new SqlCommand(sqlGetOppStats, conn);
+                            cmd3.CommandType = CommandType.StoredProcedure;
+                            cmd3.Parameters.AddWithValue("@UserID", userID);
+                            cmd3.Parameters.AddWithValue("@UserHeroID", heroStat.HeroID);
+                            cmd3.Parameters.AddWithValue("@OppHeroID", i);
+                            SqlDataAdapter da3 = new SqlDataAdapter(cmd3);
+
+                            DataSet ds3 = new DataSet();
+                            da3.Fill(ds3, "result_name4");
+                            DataTable dt3 = ds3.Tables["result_name4"];
+
+                            foreach (DataRow row3 in dt3.Rows)
+                            {
+                                oppHeroStat.Name = row3["OppHero"].ToString();
+                                oppHeroStat.Class = row3["OppHeroClass"].ToString();
+                                oppHeroStat.TotalWins = int.Parse(row3["TotalWins"].ToString());
+                                oppHeroStat.TotalLoses = int.Parse(row3["TotalLoses"].ToString());
+                                oppHeroStat.TotalGames = oppHeroStat.TotalWins + oppHeroStat.TotalLoses;
+                                if (oppHeroStat.TotalGames != 0)
+                                {
+                                    oppHeroStat.WinPercentage = (Math.Round(((double)oppHeroStat.TotalWins / oppHeroStat.TotalGames), 2) * 100);
+                                }
+                                else
+                                {
+                                    oppHeroStat.WinPercentage = 0;
+                                }
+                            }
+                            oppHeroStats.Add(oppHeroStat);
+                        }
+                        heroStat.OpponentStats = oppHeroStats;
+                    }
                     heroStats.Add(heroStat);
                 }
             }

@@ -10,8 +10,10 @@ namespace HearthstoneApplication.Objects
         public string Name { get; set; }
         public string Class { get; set; }
         public int HeroID { get; set; }
-        public int WinTotal { get; set; }
-        public int LoseTotal { get; set;} 
+        public int TotalGames { get; set; }
+        public double WinPercentage { get; set; }
+        public int TotalWins { get; set; }
+        public int TotalLoses { get; set;} 
 
     }
 }

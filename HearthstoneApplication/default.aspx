@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Header_Footer.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="HearthstoneApplication.index" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Header_Footer.Master" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="HearthstoneApplication.indexPage" %>
 
 <asp:Content ID="Header" ContentPlaceHolderID="Head" runat="server">
 </asp:Content>
@@ -14,17 +14,17 @@
         </div>
         <div id="HearthLinks" class="Center">
             <a href="http://us.battle.net/hearthstone/en/" target="_blank">
-                <img id="Hearthstone" class="HSpics" src="../Images/hearthstone.jpg" title="Hearthstone" alt="Hearthstone" /></a>
+                <img id="Hearthstone" class="HSpics" src='<%= ConfigurationManager.AppSettings["imgPath"] + "Images/hearthstone.jpg"%>' title="Hearthstone" alt="Hearthstone" /></a>
             <a href="http://www.hearthdex.com/" target="_blank">
-                <img id="Hearthdex" class="HSpics" src="../Images/HearthDex.png" title="Hearthdex" alt="Hearthdex" /></a>
+                <img id="Hearthdex" class="HSpics" src='<%= ConfigurationManager.AppSettings["imgPath"] + "Images/HearthDex.png"%>' title="Hearthdex" alt="Hearthdex" /></a>
             <a href="http://www.hearthpwn.com/" target="_blank">
-                <img id="Hearthpwn" class="HSpics" src="../Images/hearthpwn.png" title="Hearthpwn" alt="Hearthpwn" /></a>
+                <img id="Hearthpwn" class="HSpics" src='<%= ConfigurationManager.AppSettings["imgPath"] + "Images/hearthpwn.png"%>' title="Hearthpwn" alt="Hearthpwn" /></a>
             <a href="http://hearthstone.gamepedia.com/Hearthstone_Wiki" target="_blank">
-                <img id="HearthstoneWiki" class="HSpics" src="../Images/HearthstoneWiki.png" title="HearthstoneWiki" alt="HearthstoneWiki" /></a>
+                <img id="HearthstoneWiki" class="HSpics" src='<%= ConfigurationManager.AppSettings["imgPath"] + "Images/hearthstonewiki.png"%>' title="HearthstoneWiki" alt="HearthstoneWiki" /></a>
             <a href="http://www.hearthstonepedia.org/" target="_blank">
-                <img id="Hearthstonepedia" class="HSpics" src="../Images/Hearthstonepedia.jpeg" title="HearthstonePedia" alt="HearthstonePedia" /></a>
+                <img id="Hearthstonepedia" class="HSpics" src='<%= ConfigurationManager.AppSettings["imgPath"] + "Images/hearthstonepedia.jpeg"%>' title="HearthstonePedia" alt="HearthstonePedia" /></a>
             <a href="http://www.wowhead.com/hearthstone/cards" target="_blank">
-                <img id="HearthstoneWowhead" class="HSpics" src="../Images/wowhead.gif" title="WowHead" alt="WowHead" /></a>
+                <img id="HearthstoneWowhead" class="HSpics" src='<%= ConfigurationManager.AppSettings["imgPath"] + "Images/wowhead.gif"%>' title="WowHead" alt="WowHead" /></a>
         </div>
     </section>
 </asp:Content>

@@ -13,12 +13,13 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HearthstoneApplication</RootNamespace>
     <AssemblyName>HearthstoneApplication</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,22 +40,20 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Header_Footer.Master" />
@@ -105,7 +104,7 @@
     <Content Include="Images\Hearthstone\Cards\Windlord.png" />
     <Content Include="Images\Hearthstone\HeroesPics\Anduin.jpg" />
     <Content Include="Images\Hearthstone\HeroesPics\Garrosh.jpg" />
-    <Content Include="Images\Hearthstone\HeroesPics\Gul%27dan.jpg" />
+    <Content Include="Images\Hearthstone\HeroesPics\Guldan.jpg" />
     <Content Include="Images\Hearthstone\HeroesPics\Jaina.jpg" />
     <Content Include="Images\Hearthstone\HeroesPics\Malfurion.jpg" />
     <Content Include="Images\Hearthstone\HeroesPics\Rexxar.jpg" />
@@ -136,7 +135,7 @@
     <Content Include="Images\Snow.jpg" />
     <Content Include="Images\WoW.jpg" />
     <Content Include="Images\wowhead.gif" />
-    <Content Include="index.aspx" />
+    <Content Include="default.aspx" />
     <Content Include="JS\bootstrap.js" />
     <Content Include="JS\bootstrap.min.js" />
     <Content Include="JS\Common.js" />
@@ -162,12 +161,12 @@
     <Compile Include="Heroes.aspx.designer.cs">
       <DependentUpon>Heroes.aspx</DependentUpon>
     </Compile>
-    <Compile Include="index.aspx.cs">
-      <DependentUpon>index.aspx</DependentUpon>
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="index.aspx.designer.cs">
-      <DependentUpon>index.aspx</DependentUpon>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Objects\HeroStats.cs" />
     <Compile Include="Objects\OppHeroStats.cs" />

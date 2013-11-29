@@ -17,6 +17,9 @@ html, body, ul {
 .HearthHeaders{
     color: #FFF;
 }
+.underline{
+    text-decoration: underline;
+}
 /*Master Header
 ----------------------------------------------------------*/
 #MasterHeader{
@@ -260,6 +263,12 @@ ol.round {
 
 
 /*Statistics Page*/
+#userSection{
+    margin-bottom: 15px;
+}
+#StatsContainer{
+    padding-left: 30px;
+}
 .btnStats{
     margin: 20px 1%;
     padding: 0 0.5%;
@@ -270,6 +279,7 @@ ol.round {
 }
 .lblSaveStatus{
     color: green;
+    font-size: 20px;
 }
 .Red{
     color: red;
@@ -291,4 +301,23 @@ ol.round {
 .statsHeroImg {
     width: 220px;
     height: 300px;
+}
+.LargeText{
+    font-size: 30px;
+    color: black;
+    margin-bottom: 10px;
+}
+#HeroStatsContainer{
+    margin-top: 15px;
+}
+#HeroStats{
+    border: 2px solid gold;
+    margin: 0 !important;
+    padding-left: 3%;
+    padding-bottom: 15px;
+}
+
+#OppHeroStats{
+    border: 1px solid red;
+    margin: 0 !important; 
 }

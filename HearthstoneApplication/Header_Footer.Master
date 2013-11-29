@@ -34,11 +34,11 @@
                     </button>
                     <div class="leftPic">
                         <a href="http://us.blizzard.com/en-us/" target="_blank">
-                            <img id="BlizzardPic" alt="Blizzard Logo" src="/Images/Blizzard.jpg" /></a>
+                            <img id="BlizzardPic" alt="Blizzard Logo" src='<%= ConfigurationManager.AppSettings["imgPath"] + "Images/Blizzard.jpg"%>' /></a>
                     </div>
                     <div id="MasterNav" class="nav-collapse collapse Fright">
                         <ul class="nav">
-                            <li><a runat="server" href="~/index.aspx"><u>Home</u></a></li>
+                            <li><a runat="server" href="~/default.aspx"><u>Home</u></a></li>
                             <li><a runat="server" href="~/Heroes.aspx"><u>Heroes</u></a></li>
                             <li><a runat="server" href="~/Stats.aspx"><u>Statistics</u></a></li>
                         </ul>
@@ -55,7 +55,7 @@
 
         <footer>
             <div class="MasterFooter Center">
-                &copy; <%: DateTime.Now.Year %> - By: Ryan Smith & Thomas Cotter <br />
+                &copy; 2013 By: Ryan Smith & Thomas Cotter <br />
                 Contact Info: 13ladeness2@gmail.com or tcotter89@yahoo.com
             </div>
         </footer>

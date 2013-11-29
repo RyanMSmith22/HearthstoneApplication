@@ -139,6 +139,15 @@ namespace HearthstoneApplication {
         protected global::System.Web.UI.WebControls.Panel pnlviewSection;
         
         /// <summary>
+        /// lblUserDisplay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUserDisplay;
+        
+        /// <summary>
         /// HeroRepeater control.
         /// </summary>
         /// <remarks>
@@ -146,5 +155,14 @@ namespace HearthstoneApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater HeroRepeater;
+        
+        /// <summary>
+        /// pnlNoUserFound control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlNoUserFound;
     }
 }
