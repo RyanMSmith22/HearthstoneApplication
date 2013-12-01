@@ -56,6 +56,10 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\hearthstoneDB6.mdf" />
+    <Content Include="App_Data\hearthstoneDB6_log.ldf">
+      <DependentUpon>hearthstoneDB6.mdf</DependentUpon>
+    </Content>
     <Content Include="Header_Footer.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -81,6 +85,27 @@
     <Content Include="Images\glyphicons-halflings.png" />
     <Content Include="Images\HearthDex.png" />
     <Content Include="Images\hearthpwn.png" />
+    <Content Include="Images\hearthstone-back-dim33.jpg" />
+    <Content Include="Images\hearthstone-back-dim66.jpg" />
+    <Content Include="Images\hearthstone-back.jpg" />
+    <Content Include="Images\hearthstone-btn-add-stats.png" />
+    <Content Include="Images\hearthstone-btn-heroes.png" />
+    <Content Include="Images\hearthstone-btn-home.png" />
+    <Content Include="Images\hearthstone-btn-hover-add-stats.png" />
+    <Content Include="Images\hearthstone-btn-hover-heroes.png" />
+    <Content Include="Images\hearthstone-btn-hover-home.png" />
+    <Content Include="Images\hearthstone-btn-hover-login.png" />
+    <Content Include="Images\hearthstone-btn-hover-register.png" />
+    <Content Include="Images\hearthstone-btn-hover-save.png" />
+    <Content Include="Images\hearthstone-btn-hover-stats.png" />
+    <Content Include="Images\hearthstone-btn-hover-view-stats.png" />
+    <Content Include="Images\hearthstone-btn-login.png" />
+    <Content Include="Images\hearthstone-btn-register.png" />
+    <Content Include="Images\hearthstone-btn-save.png" />
+    <Content Include="Images\hearthstone-btn-stats.png" />
+    <Content Include="Images\hearthstone-btn-view-stats.png" />
+    <Content Include="Images\hearthstone-btn.png" />
+    <Content Include="Images\hearthstone-login.jpg" />
     <Content Include="Images\hearthstone.jpg" />
     <Content Include="Images\Hearthstonepedia.jpeg" />
     <Content Include="Images\HearthstoneWiki.png" />
@@ -106,6 +131,14 @@
     <Content Include="Images\Hearthstone\HeroesPics\Garrosh.jpg" />
     <Content Include="Images\Hearthstone\HeroesPics\Guldan.jpg" />
     <Content Include="Images\Hearthstone\HeroesPics\Jaina.jpg" />
+    <Content Include="Images\Hearthstone\HeroesPics\legendary-portrait-anduin wrynn.png" />
+    <Content Include="Images\Hearthstone\HeroesPics\legendary-portrait-garrosh hellscream.png" />
+    <Content Include="Images\Hearthstone\HeroesPics\legendary-portrait-guldan.png" />
+    <Content Include="Images\Hearthstone\HeroesPics\legendary-portrait-jaina proudmoore.png" />
+    <Content Include="Images\Hearthstone\HeroesPics\legendary-portrait-malfurion stormrage.png" />
+    <Content Include="Images\Hearthstone\HeroesPics\legendary-portrait-rexxar.png" />
+    <Content Include="Images\Hearthstone\HeroesPics\legendary-portrait-thrall.png" />
+    <Content Include="Images\Hearthstone\HeroesPics\legendary-portrait-valeera sanguinar.png" />
     <Content Include="Images\Hearthstone\HeroesPics\Malfurion.jpg" />
     <Content Include="Images\Hearthstone\HeroesPics\Rexxar.jpg" />
     <Content Include="Images\Hearthstone\HeroesPics\Thrall.jpg" />
@@ -133,6 +166,7 @@
     <Content Include="Images\SC2.jpg" />
     <Content Include="Images\Script.jpg" />
     <Content Include="Images\Snow.jpg" />
+    <Content Include="Images\stone-bricks-spacing.png" />
     <Content Include="Images\WoW.jpg" />
     <Content Include="Images\wowhead.gif" />
     <Content Include="default.aspx" />

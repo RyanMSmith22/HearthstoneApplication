@@ -66,55 +66,55 @@
                 <!-- Carousel items -->
                 <div class="carousel-inner">
                     <div class="active item">
-                        <img src="/Images/Hearthstone/HeroesPics/Anduin.png" alt="Pic" class="carouselImage" />
+                        <img src="Images/Hearthstone/HeroesPics/Anduin.png" alt="Pic" class="carouselImage" />
                         <div class="carousel-caption center">
                             <h4>Anduin Wrynn, Prince of Stormwind (Priest)</h4>
                         </div>
                     </div>
                     <div class="item">
-                        <img src="/Images/Hearthstone/HeroesPics/Garrosh.jpg" alt="Pic" class="carouselImage" />
+                        <img src="Images/Hearthstone/HeroesPics/Garrosh.jpg" alt="Pic" class="carouselImage" />
                         <div class="carousel-caption center">
                             <h4>Garrosh Hellscream (Warrior)</h4>
                         </div>
                     </div>
                     <div class="item">
-                        <img src="/Images/Hearthstone/HeroesPics/Gul'dan.jpg" alt="Pic" class="carouselImage" />
+                        <img src="Images/Hearthstone/HeroesPics/Guldan.jpg" alt="Pic" class="carouselImage" />
                         <div class="carousel-caption center">
                             <h4>Gul'dan (Warlock)</h4>
                         </div>
                     </div>
                     <div class="item">
-                        <img src="/Images/Hearthstone/HeroesPics/Jaina.jpg" alt="Pic" class="carouselImage" />
+                        <img src="Images/Hearthstone/HeroesPics/Jaina.jpg" alt="Pic" class="carouselImage" />
                         <div class="carousel-caption center">
                             <h4>Jaina Proudmoore (Mage)</h4>
                         </div>
                     </div>
                     <div class="item">
-                        <img src="/Images/Hearthstone/HeroesPics/Malfurion.png" alt="Pic" class="carouselImage" />
+                        <img src="Images/Hearthstone/HeroesPics/Malfurion.png" alt="Pic" class="carouselImage" />
                         <div class="carousel-caption center">
                             <h4>Malfurion Stormrage (Druid)</h4>
                         </div>
                     </div>
                     <div class="item">
-                        <img src="/Images/Hearthstone/HeroesPics/Rexxar.jpg" alt="Pic" class="carouselImage" />
+                        <img src="Images/Hearthstone/HeroesPics/Rexxar.jpg" alt="Pic" class="carouselImage" />
                         <div class="carousel-caption center">
                             <h4>Rexxar (Hunter)</h4>
                         </div>
                     </div>
                     <div class="item">
-                        <img src="/Images/Hearthstone/HeroesPics/Thrall.jpg" alt="Pic" class="carouselImage" />
+                        <img src="Images/Hearthstone/HeroesPics/Thrall.jpg" alt="Pic" class="carouselImage" />
                         <div class="carousel-caption center">
                             <h4>Thrall (Shaman)</h4>
                         </div>
                     </div>
                     <div class="item">
-                        <img src="/Images/Hearthstone/HeroesPics/Uther.jpg" alt="Pic" class="carouselImage" />
+                        <img src="Images/Hearthstone/HeroesPics/Uther.jpg" alt="Pic" class="carouselImage" />
                         <div class="carousel-caption center">
                             <h4>Sir Uther the Lightbringer (Paladin)</h4>
                         </div>
                     </div>
                     <div class="item">
-                        <img src="/Images/Hearthstone/HeroesPics/Valeera.jpg" alt="Pic" class="carouselImage" />
+                        <img src="Images/Hearthstone/HeroesPics/Valeera.jpg" alt="Pic" class="carouselImage" />
                         <div class="carousel-caption center">
                             <h4>Valeera Sanguinar (Rogue)</h4>
                         </div>

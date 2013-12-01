@@ -33,11 +33,30 @@ html, body, ul {
     margin-left: 350px;
 }
 #MasterNav{
-    margin-top: 25px;
+    margin-top: 17px;
+}
+@media (max-width: 510px){
+    #MasterNav{
+        margin-top: 5px;
+    }
+}
+#MasterNav a img{
+    width:175px;
+    height:50px;
+}
+@media (max-width: 779px){
+    #MasterNav a img{
+        width:92px;
+        height:26px;
+    }
+}
+#MasterNav a{
+    background:none;
 }
 .leftPic{
     float: left;
     padding-left: 5px;
+    margin-right: 10px;
 }
 #BlizzardPic{
     width: 200px !important;
@@ -95,10 +114,12 @@ html, body, ul {
     position: fixed;
     background-color: #EE8714;
     height: 50px;
+    display:block;
 }
 @media (max-width: 767px){
     .MasterFooter{
-        position: relative;
+        /*position: relative;*/
+        display:none;
     }
 }
 /*Default
@@ -123,18 +144,20 @@ html, body, ul {
 .HSpics{
     margin: 10px 10px;
     width: 175px;
-    height: 100px;
+    height: 70px;
 }
 
 .Hearthstone{
-    background: url("../Images/backgroundHS.jpg");
-    background-size: 100%;
+    background: url("../Images/backgroundHS.jpg") no-repeat;
+    background-size: 100% 100%;
     padding: 1%;
     color: #000;
     font-weight: bold;
+    text-align:center;
 }
 #HeroCarousel{
-    margin: 20px 0px;
+    margin: auto auto;
+    max-width:400px;
 }
 .carouselImage{
     width: 100%;
@@ -267,18 +290,22 @@ ol.round {
     margin-bottom: 15px;
 }
 #StatsContainer{
-    padding-left: 30px;
 }
 .btnStats{
     margin: 20px 1%;
     padding: 0 0.5%;
 }
 #SaveStatus{
-    display: block;
-    margin: auto auto;
+    margin-top:7px;
 }
-.lblSaveStatus{
-    color: green;
+.msgSuccess{
+    padding-left:7px;
+    color: blue;
+    font-size: 20px;
+}
+.msgError{
+    padding-left:7px;
+    color: darkred;
     font-size: 20px;
 }
 .Red{
@@ -290,12 +317,8 @@ ol.round {
 .Blue{
     color: blue;
 }
-.heroUsed {
-    text-align:right;
-}
-
-.heroAgainst {
-    text-align:left;
+.Black{
+    color: black !important;
 }
 
 .statsHeroImg {
@@ -311,13 +334,191 @@ ol.round {
     margin-top: 15px;
 }
 #HeroStats{
-    border: 2px solid gold;
+    color:#FFFFFF;
+    background-image: url("../Images/hearthstone-back-dim66.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    -moz-box-shadow:    inset 0px 0px 40px 3px #9c2bca, inset 0px 0px 50px 25px #9c2bca;
+    -webkit-box-shadow: inset 0px 0px 40px 3px #9c2bca, inset 0px 0px 50px 25px #9c2bca;
+    box-shadow:         inset 0px 0px 40px 3px #9c2bca, inset 0px 0px 50px 25px #000000;
     margin: 0 !important;
     padding-left: 3%;
     padding-bottom: 15px;
 }
+@media (max-width: 767px) {
+    #HeroStats {
+        color:#FFFFFF;
+        background: none;
+        background-color:Black;
+        -moz-box-shadow:    inset 0px 0px 40px 3px #9c2bca, inset 0px 0px 50px 25px #9c2bca;
+        -webkit-box-shadow: inset 0px 0px 40px 3px #9c2bca, inset 0px 0px 50px 25px #9c2bca;
+        box-shadow:         inset 0px 0px 40px 3px #9c2bca, inset 0px 0px 50px 25px #000000;
+        margin: 0 !important;
+        padding-left: 3%;
+        padding-bottom: 15px;
+    }
+}
 
 #OppHeroStats{
-    border: 1px solid red;
-    margin: 0 !important; 
+    background-image: url("../Images/stone-bricks-spacing.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin: 0 !important;
+    padding:10px;
+}
+@media (max-width: 767px) {
+    #OppHeroStats {
+        background: none;
+        margin: 0 !important;
+        padding:10px;
+    }
+}
+
+#OppHeroStats label{
+    font-weight:bold;
+}
+
+.OppHeroStatsArea{
+    display:inline-block;
+    background: rgba(255, 225, 175, 0.6);
+    padding:5px;
+    width:90%;
+}
+
+.backAddSection{
+    color:#FFFFFF;
+    background-image: url("../Images/hearthstone-back-dim33.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    -moz-box-shadow:    inset 0px 0px 50px 25px #000000;
+    -webkit-box-shadow: inset 0px 0px 50px 25px #000000;
+    box-shadow:         inset 0px 0px 50px 25px #000000;
+    padding-top:40px;
+    padding-bottom:30px;
+    padding-left:70px;
+    padding-right:70px;
+    display:inline-block;
+}
+@media (max-width: 767px) {
+    .backAddSection {
+        color:#FFFFFF;
+        background: none;
+        background-color: Black;
+        -moz-box-shadow:    inset 0px 0px 50px 25px #EE8714;
+        -webkit-box-shadow: inset 0px 0px 50px 25px #EE8714;
+        box-shadow:         inset 0px 0px 50px 25px #EE8714;
+        padding-top:40px;
+        padding-bottom:30px;
+        padding-left:10px;
+        padding-right:10px;
+        display:inline-block;
+    }
+}
+
+.heroBack {
+    color:#FFFFFF;
+    background: rgba(60, 30, 75, 0.6);
+    text-align:center;
+    padding-top:10px;
+    padding-bottom:25px;
+}
+
+.groupingBack {
+    color:#FFFFFF;
+    background: rgba(60, 30, 75, 0.6);
+    text-align:center;
+    padding-top:10px;
+    padding-bottom:10px;
+    margin-top:8px;
+    margin-bottom:8px;
+}
+
+select{
+    margin-left:25px;
+    margin-right:35px;
+}
+
+.heroSummary{
+    color:#FFFFFF;
+    background: rgba(60, 30, 75, 0.6);
+    /*display:inline-block;*/
+    padding:7px;
+}
+
+.versus{
+    text-align:left;
+}
+
+.statSpacing{
+    min-height:230px !important;
+}
+@media (max-width: 1565px) {
+    .statSpacing {
+        min-height: 264px !important;
+    }
+}
+@media (max-width: 1005px) {
+    .statSpacing {
+        min-height: 304px !important;
+    }
+}
+@media (max-width: 980px) {
+    .statSpacing {
+        min-height: 324px !important;
+    }
+}
+@media (max-width: 767px) {
+    .statSpacing {
+        min-height: 0px !important;
+    }
+}
+
+.loginArea{
+    color:#FFFFFF;
+    background-image: url("../Images/hearthstone-login.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    min-height:400px;
+    margin:30px auto;
+    left:0;
+    right:0;
+    position:absolute;
+    text-align:center;
+}
+
+.txtLogin{
+    margin-bottom:10px;
+}
+
+.btnLogin{
+    margin-bottom:10px;
+}
+
+.menuOptionBack{
+    color:#FFFFFF;
+    background: rgba(60, 30, 75, 0.6);
+    margin:5px;
+    padding:5px;
+}
+
+.menuOptionsBack p{
+    margin:12px;
+}
+
+.menuOptionsBack input{
+    margin:12px;
+}
+
+.menuOptions{
+    margin-left:auto;
+    margin-right:auto;
+    display:inline-block;
+}
+
+.topHeroArea{
+    /*display:inline-block;*/
+}
+
+#hid{
+    display:none;
 }

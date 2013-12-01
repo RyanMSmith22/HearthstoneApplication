@@ -1,7 +1,4 @@
 
-USE [HearthstoneDB]
-GO
-
 /****** Object:  Table [dbo].[Users]    Script Date: 10/30/2013 10:25:46 PM ******/
 SET ANSI_NULLS ON
 GO
@@ -13,22 +10,19 @@ SET ANSI_PADDING ON
 GO
 
 CREATE TABLE [dbo].[Users](
-	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[UserId] [int] IDENTITY(1,1) NOT NULL,
 	[Username] [varchar](30) NOT NULL,
 	[Pass] [varchar](20) NULL,
 	[TS] [date] NULL,
 PRIMARY KEY CLUSTERED 
 (
-	[ID] ASC
+	[UserId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 GO
 
 SET ANSI_PADDING OFF
-GO
-
-USE [HearthstoneDB]
 GO
 
 /****** Object:  Table [dbo].[Hero]    Script Date: 10/30/2013 10:25:32 PM ******/
@@ -42,21 +36,18 @@ SET ANSI_PADDING ON
 GO
 
 CREATE TABLE [dbo].[Hero](
-	[ID] [int] NOT NULL,
+	[HeroId] [int] NOT NULL,
 	[Name] [varchar](40) NULL,
 	[Class] [varchar](15) NULL,
 PRIMARY KEY CLUSTERED 
 (
-	[ID] ASC
+	[HeroId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 GO
 
 SET ANSI_PADDING OFF
-GO
-
-USE [HearthstoneDB]
 GO
 
 /****** Object:  Table [dbo].[GameStats]    Script Date: 10/30/2013 10:25:18 PM ******/
@@ -70,7 +61,7 @@ SET ANSI_PADDING ON
 GO
 
 CREATE TABLE [dbo].[GameStats](
-	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[GameStatsId] [int] IDENTITY(1,1) NOT NULL,
 	[UserHero] [int] NULL,
 	[OpponentHero] [int] NULL,
 	[Outcome] [varchar](10) NULL,
@@ -80,7 +71,7 @@ CREATE TABLE [dbo].[GameStats](
 	[UserID] [int] NULL,
 PRIMARY KEY CLUSTERED 
 (
-	[ID] ASC
+	[GameStatsId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
@@ -90,15 +81,15 @@ SET ANSI_PADDING OFF
 GO
 
 ALTER TABLE [dbo].[GameStats]  WITH CHECK ADD FOREIGN KEY([OpponentHero])
-REFERENCES [dbo].[Hero] ([ID])
+REFERENCES [dbo].[Hero] ([HeroId])
 GO
 
 ALTER TABLE [dbo].[GameStats]  WITH CHECK ADD FOREIGN KEY([UserHero])
-REFERENCES [dbo].[Hero] ([ID])
+REFERENCES [dbo].[Hero] ([HeroId])
 GO
 
 ALTER TABLE [dbo].[GameStats]  WITH CHECK ADD FOREIGN KEY([UserID])
-REFERENCES [dbo].[Users] ([ID])
+REFERENCES [dbo].[Users] ([UserId])
 GO
 
 

@@ -41,41 +41,88 @@ namespace HearthstoneApplication
             pnlNoUserFound.Visible = false;
         }
 
-        protected void btnViewStats_Click(object sender, EventArgs e)
+        protected void btnLogin_Click(object sender, EventArgs e)
         {
-            pnlAddSection.Visible = false;
-            pnlNoUserFound.Visible = false;
-            pnlviewSection.Visible = true;
-            lblUserDisplay.Text = "<u>" + tbxUserName.Text + "'s Stats for each Hero</u>";
-
-            string userName = tbxUserName.Text;
-            int userID = GetUserID(userName);
-            if (userID == 0)
-            {
-                pnlNoUserFound.Visible = true;
+            int userID = userLogin(txtLogin.Text, txtPassword.Text);
+            if (userID != 0) {
+                hdnUserID.Value = userID.ToString();
+                pnlLogin.Visible = false;
+                pnlStatMenu.Visible = true;
+                txtUsername.Text = txtLogin.Text;
                 pnlviewSection.Visible = false;
+                pnlAddSection.Visible = false;
+                pnlNoUserFound.Visible = false;
+                lblOutputMessage.Text = "Login Successfull";
+                lblOutputMessage.CssClass = "msgSuccess";
             }
             else
             {
+                lblOutputMessage.Text = "Login failed, the username or password is incorrect";
+                lblOutputMessage.CssClass = "msgError";
+            }
+        }
+
+        protected void btnRegister_Click(object sender, EventArgs e)
+        {
+            int userID = registerUser(txtLogin.Text, txtPassword.Text);
+            if (userID != 0) {
+                hdnUserID.Value = userID.ToString();
+                pnlLogin.Visible = false;
+                pnlStatMenu.Visible = true;
+                txtUsername.Text = txtLogin.Text;
+                pnlviewSection.Visible = false;
+                pnlAddSection.Visible = false;
+                pnlNoUserFound.Visible = false;
+                lblOutputMessage.Text = "Registration Successfull";
+                lblOutputMessage.CssClass = "msgSuccess";
+            }
+            else
+            {
+                lblOutputMessage.Text = "Register failed, this username may already be taken";
+                lblOutputMessage.CssClass = "msgError";
+            }
+        }
+
+        protected void btnViewStats_Click(object sender, EventArgs e)
+        {
+            lblSaveStatus.Visible = false;
+            pnlAddSection.Visible = false;
+            pnlNoUserFound.Visible = false;
+            pnlviewSection.Visible = true;
+            lblUserDisplay.Text = "<u>" + txtUsername.Text + "'s Stats for each Hero</u>";
+
+            string username = txtUsername.Text;
+            int userID = getUserId(username);
+            if (userID != 0)
+            {
                 //Once the View Stats button is pressed the username whose stats have been requested is sent to the DB to retrieve the stats
                 HeroRepeater.DataSource = getHeroStats(userID);
-                HeroRepeater.DataBind(); 
+                HeroRepeater.DataBind();
+            }
+            else
+            {
+                lblOutputMessage.Text = "User not found";
+                lblOutputMessage.CssClass = "msgError";
+                pnlviewSection.Visible = false;
             }
             
         }
 
         protected void btnSaveStats_Click(object sender, EventArgs e)
         {
-            string userName = tbxUserName.Text;
-            int userID = GetUserID(userName);
-            if (userID == 0)
+            string userName = txtLogin.Text;
+            //int userID = GetUserID(userName);
+            int userID = Convert.ToInt32(hdnUserID.Value);
+            if (userID != 0)
             {
-                userID = InsertUser(userName);
-                InsertGameStats(userID);
+                //userID = InsertUser(userName);
+                insertGameStats(userID);
             }
             else
             {
-                InsertGameStats(userID);
+                //InsertGameStats(userID);
+                lblOutputMessage.Text = "Saving stats failed, please log in again";
+                lblOutputMessage.CssClass = "msgError";
             }
         }
 
@@ -109,7 +156,50 @@ namespace HearthstoneApplication
             return String.Concat(directoryPath, picturePath, pictureName, pictureExt);
         }
 
-        public int GetUserID(string username)
+        private int userLogin(string username, string password)
+        {
+            int userID = 0;
+
+            string connString = "DBConnectionString";
+            string sproc = "Users_LoginUser";
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings[connString].ToString());
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = sproc;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = conn;
+                conn.Open();
+                cmd.Parameters.AddWithValue("@Username", username);
+                cmd.Parameters.AddWithValue("@Pass", password);
+
+                object temp;
+                temp = cmd.ExecuteScalar();
+                if (temp == null)
+                {
+                    userID = 0;
+                }
+                else
+                {
+                    userID = int.Parse(temp.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex);
+                lblOutputMessage.Text = "Error: " + ex;
+                lblOutputMessage.CssClass = "msgError";
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return userID; 
+        }
+
+        private int getUserId(string username)
         {
             int userID = 0;
 
@@ -140,6 +230,8 @@ namespace HearthstoneApplication
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex);
+                lblOutputMessage.Text = "Error: " + ex;
+                lblOutputMessage.CssClass = "msgError";
             }
             finally
             {
@@ -148,7 +240,8 @@ namespace HearthstoneApplication
 
             return userID; 
         }
-        public void InsertGameStats(int userID)
+
+        public void insertGameStats(int userID)
         {
             //Inserting in the Game Stats
             int UserHeroKey = int.Parse(ddlSelectedHero.SelectedValue);
@@ -184,42 +277,61 @@ namespace HearthstoneApplication
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex);
+                lblOutputMessage.Text = "Error: " + ex;
+                lblOutputMessage.CssClass = "msgError";
             }
             finally
             {
                 conn.Close();
-                lblSaveStatus.Visible = true;
+                lblOutputMessage.Text = "Stats saved successfully";
+                lblOutputMessage.CssClass = "msgSuccess";
             }
 
         }
-        public int InsertUser(string username)
+
+        public int registerUser(string username, string password)
         {
-            //string password = "password";
             string connString = "DBConnectionString";
             string usersInsert = "Users_Insert";
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings[connString].ToString());
 
-            int userID = 0;
-            try
+            int userID = getUserId(username);
+            if (userID == 0)
             {
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = usersInsert;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Connection = conn;
-                conn.Open();
-                cmd.Parameters.AddWithValue("@Username", username);
-                //TODO INSERT PASSWORD HERE
-                //savecmd.Parameters.AddWithValue("@Pass", password);
+                try
+                {
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.CommandText = usersInsert;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Connection = conn;
+                    conn.Open();
+                    cmd.Parameters.AddWithValue("@Username", username);
+                    //TODO INSERT PASSWORD HERE
+                    cmd.Parameters.AddWithValue("@Pass", password);
 
-                userID = int.Parse(cmd.ExecuteScalar().ToString());
+                    userID = int.Parse(cmd.ExecuteScalar().ToString());
+                    //conn.Open();
+                    //using (SqlCommand cmd = new SqlCommand("insert into Users (Username, Pass, TS) values ('" + username + "', '" + password + "', GETDATE())", conn))
+                    //{
+                    //    lblOutputMessage.Text = "insert into Users (Username, Pass, TS) values ('" + username + "', '" + password + "', GETDATE())";
+                    //    cmd.ExecuteNonQuery();
+                    //    userID = 1;
+                    //}
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex);
+                    lblOutputMessage.Text = "Error: " + ex;
+                    lblOutputMessage.CssClass = "msgError";
+                }
+                finally
+                {
+                    conn.Close();
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine("Error: " + ex);
-            }
-            finally
-            {
-                conn.Close();
+                return 0;   //this user already exists, return a fail
             }
             return userID;
         }
