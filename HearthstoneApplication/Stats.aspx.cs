@@ -57,7 +57,7 @@ namespace HearthstoneApplication
             }
             else
             {
-                lblOutputMessage.Text = "Login failed, the username or password is incorrect";
+                lblOutputMessage.Text = "Login failed, username or pass is incorrect";
                 lblOutputMessage.CssClass = "msgError";
             }
         }
@@ -78,7 +78,7 @@ namespace HearthstoneApplication
             }
             else
             {
-                lblOutputMessage.Text = "Register failed, this username may already be taken";
+                lblOutputMessage.Text = "Register failed, username in use";
                 lblOutputMessage.CssClass = "msgError";
             }
         }
@@ -121,7 +121,7 @@ namespace HearthstoneApplication
             else
             {
                 //InsertGameStats(userID);
-                lblOutputMessage.Text = "Saving stats failed, please log in again";
+                lblOutputMessage.Text = "Saving stats failed, please re-login";
                 lblOutputMessage.CssClass = "msgError";
             }
         }

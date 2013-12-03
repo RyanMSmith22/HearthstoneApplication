@@ -43,16 +43,16 @@
                     <div class="span3 menuOptionBack Center">
                         <p>You can add stats for your currently logged-in account. This will save the stats to your specific username and can be found with your username when viewing stats.</p>
                         <br />
-                        <asp:ImageButton ID="btnAddStats" runat="server" ImageUrl='Images/hearthstone-btn-add-stats.png' OnClick="btnAddStats_Click" 
+                        <asp:ImageButton ID="btnAddStats" CssClass="menuBtn" runat="server" ImageUrl='Images/hearthstone-btn-add-stats.png' OnClick="btnAddStats_Click" 
                             onmouseover="this.src='Images/hearthstone-btn-hover-add-stats.png'" 
                             onmouseout="this.src='Images/hearthstone-btn-add-stats.png'"/>
                     </div>
                     <div class="span3 menuOptionBack Center">
                         <p>Enter in a username who has set his or her stats to public to view that person's Hearthstone win and loss statistics for each class.</p>
                         <div id="divUserName">
-                            <asp:TextBox ID="txtUsername" placeholder="Username" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtUsername" CssClass="menuTxt" placeholder="Username" runat="server"></asp:TextBox>
                         </div>
-                        <asp:ImageButton ID="btnViewStats" runat="server" ImageUrl='Images/hearthstone-btn-view-stats.png' OnClick="btnViewStats_Click" 
+                        <asp:ImageButton ID="btnViewStats" CssClass="menuBtn" runat="server" ImageUrl='Images/hearthstone-btn-view-stats.png' OnClick="btnViewStats_Click" 
                             onmouseover="this.src='Images/hearthstone-btn-hover-view-stats.png'" 
                             onmouseout="this.src='Images/hearthstone-btn-view-stats.png'"/>
                     </div>

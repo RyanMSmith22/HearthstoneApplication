@@ -4,7 +4,7 @@
     background-color: #EE8714 !important;
 }
 a:hover{
-    background-color: #0000FF;
+    /*background-color: #0000FF;*/
 }
 a:link, a:visited,
     a:active{
@@ -500,13 +500,27 @@ select{
     margin:5px;
     padding:5px;
 }
-
-.menuOptionsBack p{
-    margin:12px;
+@media (max-width: 1200px){
+    .menuOptionBack .menuBtn{
+        width: 160px;
+        height: 45px;
+    }
 }
-
-.menuOptionsBack input{
-    margin:12px;
+@media (max-width: 768px){
+    .menuOptionBack .menuBtn{
+        width: 240px;
+        height: 70px;
+    }
+}
+@media (max-width: 980px){
+    .menuOptionBack .menuTxt{
+        width: 150px;
+    }
+}
+@media (max-width: 980px){
+    #SaveStatus{
+        padding-top:7px;
+    }
 }
 
 .menuOptions{
